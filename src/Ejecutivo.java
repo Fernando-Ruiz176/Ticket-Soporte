@@ -27,7 +27,11 @@ public class Ejecutivo {
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		if( id > 0) {
+			this.id = id;
+		} else {
+			throw new Exception("No se pueden asignar valores menores a 1 al ID");
+		}
 	}
 
 	public String getNombre() {

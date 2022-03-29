@@ -11,7 +11,7 @@ public class AppSoporte {
 	private static Ejecutivo ejecutivoConectado;
 
 	public static void main(String[] args) {
-		init();
+		init(); /*carga de datos simulada para la ejecucion de la aplicacion*/
 		
 		Scanner scannerConsola = new Scanner(System.in);
 		System.out.println("Por favor ingrese su usuario: ");
@@ -25,9 +25,13 @@ public class AppSoporte {
 				ejecutivoConectado = ejecutivo;
 				break;
 				
-			} 
+		//VOY EN LA PAGINA 146 DE PUNTOS BASICOS DE LENGUAJE
+				
+				
+			} else {
 			System.out.println("Usuario y/o contraseña No existen !!! ");
 			System.exit(0);
+			}
 		}
 		
 	}

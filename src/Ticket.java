@@ -18,7 +18,10 @@ public class Ticket {
 	}
 
 	public Ticket(int numero, LocalDateTime fechaHora, Cliente cliente, Producto producto, Ejecutivo ejecutivo,
-			Ejecutivo ejecutivoDerivado, String problema, String solucion, String estado) {
+			Ejecutivo ejecutivoDerivado, String problema, String solucion, String estado) throws Exception {
+		if (ejecutivo == null) {
+			throw new Exception("El ticket debe tener asignado un ejecutivo");
+		}
 		
 		this.numero = numero;
 		this.fechaHora = fechaHora;
