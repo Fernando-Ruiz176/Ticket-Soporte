@@ -12,6 +12,10 @@ public class Ticket {
 	private String solucion;
 	private String estado;
 	
+	public final static String ESTADO_ABIERTO = "ABIERTO";
+	public final static String ESTADO_CERRADO = "CERRADO";
+	public final static String ESTADO_DERIVADO = "DERIVADO";
+	
 	
 	public Ticket() {
 		

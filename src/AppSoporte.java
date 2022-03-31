@@ -9,12 +9,48 @@ public class AppSoporte {
 	private static ArrayList<Ticket> tickets       = new ArrayList<>();
 	
 	private static Ejecutivo ejecutivoConectado;
-
-	public static void main(String[] args) {
+	
+	private static int opcionSeleccionada;
+	private final static short OPCION_CREAR_TICKET = 1;
+	private final static short OPCION_SALIR = 6;
+	
+	public static void main(String [] args ) {
 		init(); /*carga de datos simulada para la ejecucion de la aplicacion*/
+		if (autenticar () ) {
+			
+			do {
+				mostrarMenu();
+			} while( opcionSeleccionada != OPCION_SALIR);
+		
+		}else {
+			System.out.println("Usuario y/o contraseña incorrectos. Cerrando la aplicacion.");
+			System.exit(0);
+		}	
+	}
+	
+	private static void mostrarMenu() {
+		Scanner scannerConsola = new Scanner(System.in);
+		System.out.println("1. Crear Ticket");
+		System.out.println("6. Salir");
+		System.out.println("Escoja una opcion del menú: ");
+		int opcionSeleccionada = scannerConsola.nextInt();
+		
+		switch( opcionSeleccionada ) {
+			case OPCION_CREAR_TICKET:
+				crearTicket();
+				break;
+		}
+	}
+	
+	private static void crearTicket() {
+		
+		
+	}
+	
+	private static boolean autenticar() {
 		
 		Scanner scannerConsola = new Scanner(System.in);
-		System.out.println("Por favor ingrese su usuario: ");
+		System.out.println("Por favor ingrese su rut (ej: 12345678-1): ");
 		String usuario = scannerConsola.next();
 		System.out.println("por favor ingrese su password: ");
 		String password = scannerConsola.next();
@@ -23,17 +59,10 @@ public class AppSoporte {
 			if( ejecutivo.getRut().equalsIgnoreCase( usuario )
 					&& ejecutivo.getPassword().equals(password)  ) {
 				ejecutivoConectado = ejecutivo;
-				break;
-				
-		//VOY EN LA PAGINA 146 DE PUNTOS BASICOS DE LENGUAJE
-				
-				
-			} else {
-			System.out.println("Usuario y/o contraseña No existen !!! ");
-			System.exit(0);
-			}
+				return true;	
+			} 
 		}
-		
+		return false;
 	}
 	
 	private static void init() {
