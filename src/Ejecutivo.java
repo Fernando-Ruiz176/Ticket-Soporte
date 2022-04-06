@@ -26,7 +26,7 @@ public class Ejecutivo {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(int id) throws Exception {
 		if( id > 0) {
 			this.id = id;
 		} else {
