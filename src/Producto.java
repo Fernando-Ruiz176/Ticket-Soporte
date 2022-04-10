@@ -1,31 +1,31 @@
 
 public class Producto {
 	
-	private int tipo;
-	private String subTipo;
+	private int id;
+	private String Tipo;
 	
 	public Producto() {
 	}
 
-	public Producto(int tipo, String subTipo) {
-		this.tipo = tipo;
-		this.subTipo = subTipo;
+	public Producto(int id, String tipo) {
+		this.id = id;
+		Tipo = tipo;
 	}
 
-	public int getTipo() {
-		return tipo;
+	public int getId() {
+		return id;
 	}
 
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getSubTipo() {
-		return subTipo;
+	public String getTipo() {
+		return Tipo;
 	}
 
-	public void setSubTipo(String subTipo) {
-		this.subTipo = subTipo;
+	public void setTipo(String tipo) {
+		Tipo = tipo;
 	}
 	
 	

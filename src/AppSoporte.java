@@ -43,12 +43,21 @@ public class AppSoporte {
 	}
 	
 	private static void crearTicket() {
-		
+		  Scanner scanner = new Scanner (System.in);
+		  System.out.println("Ingrese numero de ticket");
+		  int numeroTicket = scanner.nextInt();
+		 
+		  System.out.println("Ingrese descripcion del problema");
+		  String problema = scanner.nextLine();
+		  
+		  System.out.println("Ingrese Estado");
+		  String estado = scanner.nextLine();
+		  
+		  
 		
 	}
 	
 	private static boolean autenticar() {
-		
 		Scanner scannerConsola = new Scanner(System.in);
 		System.out.println("Por favor ingrese su rut (ej: 12345678-1): ");
 		String usuario = scannerConsola.next();

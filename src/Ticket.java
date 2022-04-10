@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 
 public class Ticket {
 
-	private int numero;
+	private long numero;
 	private LocalDateTime fechaHora = LocalDateTime.now();
 	private Cliente cliente;
 	private Producto producto;
