@@ -1,6 +1,7 @@
 package AppSoporte;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ public class AppSoporte {
 	 
 	public static void main(String[] args) {
 		init();			
+		
 		Scanner scanner = new Scanner (System.in);
 		int opcionSeleccionada;
 		if (autenticar()){
@@ -157,7 +159,7 @@ public class AppSoporte {
 		System.out.println("Ingrese especificacion del Problema");
 		String especificacion = scanner.nextLine();
 		
-		System.out.println("Genere la ayuda y resetee sistema, espere respuesta");
+		System.out.println("Ingrese solucion primaria, para luego resetear, si no hay respuesta ingrese ejecutivo soporte");
 		String solucion = scanner.nextLine();
 		
 		System.out.println("Confirme rut del ejecutivo de soporte:");
@@ -167,7 +169,14 @@ public class AppSoporte {
 		System.out.println("Ingrese estado");
 		String estado = scanner.nextLine();
 		
-		Ticket ticketNuevo = new Ticket(fechaHora, rutCliente,  codigoDelProducto, rutEjecutivo , rutEjecutivo2, especificacion,  solucion,  estado);
+		Ticket ticketNuevo = new Ticket(fechaHora, 
+				rutCliente,  
+				codigoDelProducto, 
+				rutEjecutivo , 
+				rutEjecutivo2, 
+				especificacion,  
+				solucion,  
+				estado);
 		tickets.add(ticketNuevo);
 		
 	}
@@ -203,7 +212,7 @@ public class AppSoporte {
 
 
 		for(Ticket ticket : tickets) {
-			System.out.printf("Ticket        : " + ticket.getFechaHora() 
+			System.out.printf("\nTicket        : " + ticket.getFechaHora() 
 			+ "\nEspecificacin : " + ticket.getProblema()
 			+ "\nAsistente     : " + ticket.getEjecutivoPrimario().getNombreEjecutivo()
 			+ "\nSolucion      : " + ticket.getSolucion()
@@ -239,9 +248,13 @@ public class AppSoporte {
 		System.out.println("3. Salir");
 		System.out.println("\nPor favor Seleccione una Opcion");
 		Scanner scanner = new Scanner(System.in);
-		int opcionSeleccionada = scanner.nextInt();
-		
-		return opcionSeleccionada;
+		try {
+			int opcionSeleccionada = scanner.nextInt();
+			return opcionSeleccionada;
+		} catch (InputMismatchException ime) {
+			System.out.println("Debe ingresar informacin requerida!!");
+		}
+		return 0;
 	}
 
 }
